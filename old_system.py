@@ -28,7 +28,7 @@ def run_system_monolith():
         if opt == "1":  
             print("Current Crew List:")
             
-            for i in range(10):
+            for i in range(len(n)):
                 print(n[i] + " - " + r[i]) 
                 
         elif opt == "2":
@@ -54,7 +54,7 @@ def run_system_monolith():
             count = 0
             
             for rank in r:
-                if rank == "Captain" or "Commander": 
+                if rank == "Captain" or rank == "Commander": 
                     count = count + 1
             print("High ranking officers: " + count) 
             
@@ -92,3 +92,5 @@ run_system_monolith()
 #line 28 syntax error = should of been == (= is assigning a value == is comparioson)
 #line 16 added a end to the loop originally an infinate loop so no code will run after 
 #added () to run_system_monolith 
+#line 31 n is a list so it dosent work in the range so len(n) which added a integer range 
+#line57 originally code reading every rank as true so i alterd it by adding rank == infront of the comander part allowing not every input as true 
