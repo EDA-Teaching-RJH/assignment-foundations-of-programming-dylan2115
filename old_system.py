@@ -38,8 +38,8 @@ def run_system_monolith():
             
            
             n.append(new_name)
-            n.append(new_rank)
-            n.append(new_div)
+            r.append(new_rank)
+            d.append(new_div)
             print("Crew member added.")
             
         elif opt == "3":
@@ -97,4 +97,5 @@ run_system_monolith()
 #line 31 n is a list so it dosent work in the range so len(n) which added a integer range 
 #line57 originally code reading every rank as true so i alterd it by adding rank == infront of the comander part allowing not every input as true 
 #in line 59 the way it was it was printing high ranking officer but is trying to add the count but this would not work as it was not a srting so i added str in front so its adding a srting to a string so know it works 
-#in line 41 and 42 it was only able to add the name to the crew list so when it was locking for the rank and the division it was not able to find it in the list  
+#in line 41 and 42 it was only able to add the name to the crew list so when it was locking for the rank and the division it was not able to find it in the list
+# line 42 and 41 i had creatyed a new bug by putting my input in to the wrong lists so i had corrected this   
