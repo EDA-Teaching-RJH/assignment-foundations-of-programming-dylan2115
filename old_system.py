@@ -84,18 +84,20 @@ def run_system_monolith():
         fuel = 100
         consumption = 0
         while fuel > 0:
-            
+            print("fuel:",fuel)
             print("Idling...")
-            break 
+            fuel -= 1 
             
         print("End of cycle.")
 
 run_system_monolith()
 #line 28 syntax error = should of been == (= is assigning a value == is comparioson)
-#line 16 added a end to the loop originally an infinate loop so no code will run after 
-#line 91 added () to run_system_monolith 
-#line 31 n is a list so it dosent work in the range so len(n) which added a integer range 
+#line 16 added a end to the loop, originally it was an infinate loop so no code will run for ever becausee it was waiting for a value before ending so i made it so the value would imcrease by one untill it reach the desired value to end the loop  
+#line 92 added () to run_system_monolith this is because the function would never be called over wise  
+#line 31 originally it was range(10) because i only had 4 things in the list it was causing an index error so i replaced it with (len(n)) which allowed the value to be chnaged 
 #line57 originally code reading every rank as true so i alterd it by adding rank == infront of the comander part allowing not every input as true 
-#in line 59 the way it was it was printing high ranking officer but is trying to add the count but this would not work as it was not a srting so i added str in front so its adding a srting to a string so know it works 
-#in line 41 and 42 it was only able to add the name to the crew list so when it was locking for the rank and the division it was not able to find it in the list
-# line 42 and 41 i had creatyed a new bug by putting my input in to the wrong lists so i had corrected this   
+#in line 61 the code was trying to print the integer so i made it convert to a string before printing to solve any errors 
+#in line 41 and 42 it was only able to add the appending name to the crew list so when it was locking for the appending rank and the appending division it was not able to find it in the list
+# line 42 and 41 i had creatyed a new bug by putting my input in to the wrong lists so i had corrected this
+# line 88 and 87 i had remove the break in the loop so it would run until i exit the systerm also i added -= 1 so the value would go down in increments of 1 
+# line 87 i i added the code the reason i did this is because with out it it would continously frint idling     
