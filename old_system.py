@@ -13,7 +13,7 @@ def run_system_monolith():
     loading = 0
     while loading < 5:
         print("Loading module " + str(loading))
-        
+        loading += 1
     
     while True:
         print("\n--- MENU ---")
@@ -88,5 +88,7 @@ def run_system_monolith():
             
         print("End of cycle.")
 
-run_system_monolith
+run_system_monolith()
 #line 28 syntax error = should of been == (= is assigning a value == is comparioson)
+#line 16 added a end to the loop originally an infinate loop so no code will run after 
+#added () to run_system_monolith 
