@@ -25,7 +25,7 @@ def run_system_monolith():
         
         opt = input("Select option: ")
         
-        if opt = "1":  
+        if opt == "1":  
             print("Current Crew List:")
             
             for i in range(10):
@@ -89,3 +89,4 @@ def run_system_monolith():
         print("End of cycle.")
 
 run_system_monolith
+#line 28 syntax error = should of been == (= is assigning a value == is comparioson)
