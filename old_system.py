@@ -93,7 +93,7 @@ def run_system_monolith():
 run_system_monolith()
 #line 28 syntax error = should of been == (= is assigning a value == is comparioson)
 #line 16 added a end to the loop originally an infinate loop so no code will run after 
-#added () to run_system_monolith 
+#line 91 added () to run_system_monolith 
 #line 31 n is a list so it dosent work in the range so len(n) which added a integer range 
 #line57 originally code reading every rank as true so i alterd it by adding rank == infront of the comander part allowing not every input as true 
 #in line 59 the way it was it was printing high ranking officer but is trying to add the count but this would not work as it was not a srting so i added str in front so its adding a srting to a string so know it works 
