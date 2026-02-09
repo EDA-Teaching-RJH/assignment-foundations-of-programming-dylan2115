@@ -7,4 +7,6 @@ def init_database():
 
     return title, rank, division, ids
 
-
+print("terminal activation")
+print("systerm loading")
+print("systerm open")
