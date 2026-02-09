@@ -87,7 +87,8 @@ def run_system_monolith():
             print("fuel:",fuel)
             print("Idling...")
             fuel -= 1 
-            
+            break
+
         print("End of cycle.")
 
 run_system_monolith()
