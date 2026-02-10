@@ -10,23 +10,19 @@ def init_database():
 print("terminal activation")
 print("systerm loading")
 print("systerm open")
-print("welocome user")
+print("welcome user")
 print("="*20)
 
-def main():
-#this is my main loop that all the if elif and else loops run through
-    Titles, Rank, Division, Ids = init_database()
-    while True:
-        choice = display_menu()
-       #ask for the users name and welocmes them to star fleet comand 
-        def display_menu():
-            name = input("what is your name")
+
+def display_menu():
+            #ask for the users name and welocmes them to star fleet comand
+            name = input("what is your name ")
             print("hello", name)
-            print("welocome to starfleet comand")
+            print("welcome to starfleet comand")
             print("=" *20)
 
             #prints all the different menu options
-            print("1. displayroster")
+            print("1. display roster")
             print("2. add member")
             print("3. remover member")
             print("4. update rank")
@@ -40,6 +36,11 @@ def main():
             choice = input("please select entry")
 
             return choice
+def main():
+#this is my main loop that all the if elif and else loops run through
+    Titles, Rank, Division, Ids = init_database()
+    while True:
+        choice = display_menu() 
 
         if choice == "1":
             display_roster(Titles, Rank, Division, Ids)
@@ -78,3 +79,4 @@ def main():
         else:
             print("option not avaliable")
             print("try gain")
+main()
