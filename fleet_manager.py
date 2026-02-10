@@ -1,5 +1,5 @@
 def init_database():
-
+#starting list of names and ranks and over info
     Titles = ["Picard", "Riker", "Data", "Forge", "Crusher"]
     Rank = ["Captain", "Commander", "Lt. Commander", "Lieutenant", "Commander"]
     Division = ["Command", "Command", "Operations","Operations", "Sciences"]
@@ -14,10 +14,32 @@ print("welocome user")
 print("="*20)
 
 def main():
-
+#this is my main loop that all the if elif and else loops run through
     Titles, Rank, Division, Ids = init_database()
     while True:
         choice = display_menu()
+       #ask for the users name and welocmes them to star fleet comand 
+        def display_menu():
+            name = input("what is your name")
+            print("hello", name)
+            print("welocome to starfleet comand")
+            print("=" *20)
+
+            #prints all the different menu options
+            print("1. displayroster")
+            print("2. add member")
+            print("3. remover member")
+            print("4. update rank")
+            print("5. search crewmen")
+            print("6. filter by divisions")
+            print("7. calculate payroll")
+            print("8. count oficers")
+            print("9. exit terminal")
+            print("=" * 20)
+            #allows the input for the different menus
+            choice = input("please select entry")
+
+            return choice
 
         if choice == "1":
             display_roster(Titles, Rank, Division, Ids)
