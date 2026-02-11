@@ -4,7 +4,7 @@ def init_database():
     Rank = ["Captain", "Commander", "Lt. Commander", "Lieutenant", "Commander"]
     Division = ["Command", "Command", "Operations","Operations", "Sciences"]
     Ids = [1001, 1002, 1003, 1004, 1005] 
-
+#sir the hardest thing so far is finding the names and roles of the characters as i have never watched star trek
     return Titles, Rank, Division, Ids
 
 print("terminal activation")
@@ -33,9 +33,25 @@ def display_menu():
             print("9. exit terminal")
             print("=" * 20)
             #allows the input for the different menus
-            choice = input("please select entry")
+            choice = input("please select entry ")
+            print("=" * 20)
 
             return choice
+
+def display_roster(Titles, Rank, Division, Ids):
+     
+     print("roster solected")
+     print("ideling")
+     print("====displaying roster====")
+     print("=" * 20)
+     
+     for i in range(len(Titles)):
+          print(f"<  {Titles[i]}  >  <  {Rank[i]}  >  <  {Division[i]}  >  <  {Ids[i]}  >")
+
+          print("=" * 20)
+# i used a for in range to print all the caracters with there respected rank division and set id  
+          
+          
 def main():
 #this is my main loop that all the if elif and else loops run through
     Titles, Rank, Division, Ids = init_database()
