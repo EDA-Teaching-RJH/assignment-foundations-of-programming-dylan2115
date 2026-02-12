@@ -15,12 +15,7 @@ print("="*20)
 
 
 def display_menu():
-            #ask for the users name and welocmes them to star fleet comand
-            name = input("what is your name ")
-            print("hello", name)
-            print("welcome to starfleet comand")
-            print("=" *20)
-
+           
             #prints all the different menu options
             print("1. display roster")
             print("2. add member")
@@ -50,11 +45,35 @@ def display_roster(Titles, Rank, Division, Ids):
 
           print("=" * 20)
 # i used a for in range to print all the caracters with there respected rank division and set id  
-          
-          
+
+def add_member(Titles, Rank, Division, Ids):
+     
+     print("add member selected")
+     print("idling")
+     print("====add member====")
+
+     new_Title = input("insert crew members name ")
+     new_Rank = input("insert new crem members rank")
+     new_Division = input("insert new crew members division")
+     new_Ids = input("insert new crew members I'd")
+
+     Titles.append(new_Title)
+     Rank.append(new_Rank)
+     Division.append(new_Division)
+     Ids.append(new_Ids)
+
+     print(f"{new_Title} crew member has been officaly added to the crew. ")
+     print("=" * 20)
+
 def main():
 #this is my main loop that all the if elif and else loops run through
     Titles, Rank, Division, Ids = init_database()
+#ask for the users name and welocmes them to star fleet comand   
+    name = input("what is your name ")
+    print("hello", name)
+    print("welcome to starfleet comand")
+    print("=" *20)
+
     while True:
         choice = display_menu() 
 
