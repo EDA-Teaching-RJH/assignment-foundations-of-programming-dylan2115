@@ -36,7 +36,7 @@ def display_menu():
 def display_roster(Titles, Rank, Division, Ids):
      
      print("roster solected")
-     print("ideling")
+     print("loading please tsand by ")
      print("====displaying roster====")
      print("=" * 20)
      
@@ -47,9 +47,9 @@ def display_roster(Titles, Rank, Division, Ids):
 # i used a for in range to print all the caracters with there respected rank division and set id  
 
 def add_member(Titles, Rank, Division, Ids):
-     
+     #this section alows new members to be added to the crew by inputing the data in the the init_data base 
      print("add member selected")
-     print("idling")
+     print("loading please stand by")
      print("====add member====")
 
      new_Title = input("insert crew members name ")
@@ -64,6 +64,28 @@ def add_member(Titles, Rank, Division, Ids):
 
      print(f"{new_Title} crew member has been officaly added to the crew. ")
      print("=" * 20)
+
+def remove_member(Titles, Rank, Division, Ids):
+     print("remeve member selected ")
+     print("loading please stand by")
+     print("====remove member====")
+
+     remove_id = int(input("please enter the id of the crewmen to be terminated"))
+
+     if remove_id in Ids:
+          index = Ids.index(remove_id)
+
+          remove_name = Titles[index]
+
+          Titles.pop(index)
+          Rank.pop(index)
+          Division.pop(index)
+          Ids.pop(index)
+
+          print(f"{remove_name} crew member has been terminated,advised to escort crewmen of board ")
+     else:
+          print("error: id not recognised ")
+          print("=" * 20)     
 
 def main():
 #this is my main loop that all the if elif and else loops run through
