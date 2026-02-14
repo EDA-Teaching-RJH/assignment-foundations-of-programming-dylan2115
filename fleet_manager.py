@@ -161,10 +161,38 @@ def  filter_by_division(Titles, Division):
           print("no crewmen present in this division.")
           print(" * 20")
 
+def calculate_payroll(Rank):
+     print("calculate payrole selected")
+     print("please stand by, loading")
+     print("====calculate payrole====")
 
+     total_pay = 0 
 
+     pay_rates = {
+        "Admiral": 7000,
+        "Captain": 5000,
+        "Commander": 4000,
+        "Lt. Commander": 3500,
+        "Lieutenant": 3000,
+        "Lieutenant Junior Grade": 2800,
+        "Ensign": 2500,
+        "Chief Petty Officer": 2200,
+        "Petty Officer": 2000,
+        "Crewman": 1800,
+        "Chief Engineer": 4500,
+        "Chief Medical Officer": 4500,
+        "Counselor": 4200,
+        "Tactical Officer": 4000
+     } 
+     for r in Rank:
+          if r in pay_rates:
+               total_pay += pay_rates[r]
+          else:
+               print(f"warning: rank not recognised '{r}',no pay added to total")
+              
+     print(f"total payroll for all crew members is {total_pay} credits.")
+     print("=" * 20)
 
- 
 
 def main():
 
