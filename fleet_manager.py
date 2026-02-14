@@ -1,12 +1,14 @@
 def init_database():
-    
-#starting list of names and ranks and over info for functions to pull info from
+# starting list of names and ranks
+ 
+# all lists are parrale lists if the 3 name is selected then the 3 rank and the 3 id and so on    
     
     Titles = ["Picard", "Riker", "Data", "Forge", "Crusher"]
     Rank = ["Captain", "Commander", "Lt. Commander", "Lieutenant", "Commander"]
     Division = ["Command", "Command", "Operations","Operations", "Sciences"]
+#ids must be an interger to match correctly
+    
     Ids = [1001, 1002, 1003, 1004, 1005]
-
 #sir the hardest thing so far is finding the names and roles of the characters as i have never watched star trek XD
 
     return Titles, Rank, Division, Ids
@@ -20,9 +22,9 @@ print("="*20)
 # this is the opening welcome message to the user 
 
 def display_menu():
-            
-#this function opens no mater the input and prints all the options for the user to use           
-            
+#prints the main menu at the beggining of every loop          
+
+#returns the inpuit choice so main() can choice the right function to pull            
     print("please selct entry")
     print("1. display roster")
     print("2. add member")
@@ -34,13 +36,14 @@ def display_menu():
     print("8. count oficers")
     print("9. exit terminal")
     choice = input("please select entry ")
-
-#the requested input allows for the function in the main loop to be pulled
            
     return choice
 
 def display_roster(Titles, Rank, Division, Ids):
-     
+#shows the full crew list
+ 
+#i used a range(len()) to keep all 4 lists alligned 
+      
     print("roster solected")
     print("loading please tsand by ")
     print("====displaying roster====")
@@ -51,15 +54,14 @@ def display_roster(Titles, Rank, Division, Ids):
 
         print("=" * 20)
 
-# i used a "for in range" to print all the caracters with there respected rank division and set id this roster will update when the add remove and update rank functions are used   
-# also the roster will be used when searching crew 
-
 def add_member(Titles, Rank, Division, Ids):
-     #this section alows new members to be added to the crew by inputing the data in the the init_data base 
-     
+#this function adds the new crewmen to all 4 lists
+ 
+#also it validates the rank with tng and always creates a new id      
     print("add member selected")
     print("loading please stand by")
     print("====add member====")
+#all the valed tng ranks i could find i think i got them all 
 
     valid_Ranks = [
         "Admiral", "Captain", "Commander", "Lt. Commander",
@@ -71,18 +73,22 @@ def add_member(Titles, Rank, Division, Ids):
 
     new_Title = input("insert crew members name ")
     new_Rank = input("insert new crem members rank ")
+#checks if the input rank is the same as a valid rank 
+
     if new_Rank not in valid_Ranks:
         print("error: Rank not recognised. failed to add member.")
         print("=" * 20)
 
     new_Division = input("insert new crew members division ")
     new_Ids = input("insert new crew members I'd ")
+#makes sure the IDS do not overlap
 
     if new_Ids in Ids:
         print("error: id already allocated, failed to add member")
         print("please try again with an alternative ID")
         print("=" * 20)
         return
+#this adds to allthe lists and stay a parrale list
 
     Titles.append(new_Title)
     Rank.append(new_Rank)
@@ -125,7 +131,7 @@ def update_rank(Titles, Rank, Ids):
 
 #this function askes for a id and then a new rank to change again if the is is not recgnised it sends a error message
   
-    update_id = int(input("input designated id of a crewmen to update there rank"))
+    update_id = input("input designated id of a crewmen to update there rank")
 
     if update_id in Ids:
         index = Ids.index(update_id)
@@ -144,7 +150,7 @@ def search_crew(Titles, Rank, Division, Ids):
     print("please stand by, loading")
     print("====search crewmen selected====")
 #this function searches for crewmen via a full string or a partical string.
-    search_term = input("enter name or section of name to search for crewmen ")
+    search_term = input("enter name or section of name to search for crewmen ").lower()
 #if the full string is found its declared false and inputs the result
     found = False
 
@@ -155,7 +161,7 @@ def search_crew(Titles, Rank, Division, Ids):
             found = True
 #if a partal string is input it will compare the partial string to the full string and if so it will be found true and input the result  
     if not found:
-        print("no crew members match that search research.")
+        print("no crew members match that search research result.")
         print("please try again")
         print("=" * 20)
 
@@ -166,7 +172,7 @@ def  filter_by_division(Titles, Division):
 
     search_div = input("please enter division to fillter by (command, operations, sciences):").lower()
 
-    found = True
+    found = False
 
     for i in range(len(Division)):
         if Division[i].lower() == search_div:
