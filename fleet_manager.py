@@ -23,33 +23,33 @@ def display_menu():
             
 #this function opens no mater the input and prints all the options for the user to use           
             
-            print("please selct entry")
-            print("1. display roster")
-            print("2. add member")
-            print("3. remover member")
-            print("4. update rank")
-            print("5. search crewmen")
-            print("6. filter by divisions")
-            print("7. calculate payroll")
-            print("8. count oficers")
-            print("9. exit terminal")
-            choice = input("please select entry ")
+    print("please selct entry")
+    print("1. display roster")
+    print("2. add member")
+    print("3. remover member")
+    print("4. update rank")
+    print("5. search crewmen")
+    print("6. filter by divisions")
+    print("7. calculate payroll")
+    print("8. count oficers")
+    print("9. exit terminal")
+    choice = input("please select entry ")
 
 #the requested input allows for the function in the main loop to be pulled
            
-            return choice
+    return choice
 
 def display_roster(Titles, Rank, Division, Ids):
      
-     print("roster solected")
-     print("loading please tsand by ")
-     print("====displaying roster====")
-     print("=" * 20)
+    print("roster solected")
+    print("loading please tsand by ")
+    print("====displaying roster====")
+    print("=" * 20)
      
-     for i in range(len(Titles)):
-          print(f"<  {Titles[i]}  >  <  {Rank[i]}  >  <  {Division[i]}  >  <  {Ids[i]}  >")
+    for i in range(len(Titles)):
+        print(f"<  {Titles[i]}  >  <  {Rank[i]}  >  <  {Division[i]}  >  <  {Ids[i]}  >")
 
-          print("=" * 20)
+        print("=" * 20)
 
 # i used a "for in range" to print all the caracters with there respected rank division and set id this roster will update when the add remove and update rank functions are used   
 # also the roster will be used when searching crew 
@@ -57,28 +57,40 @@ def display_roster(Titles, Rank, Division, Ids):
 def add_member(Titles, Rank, Division, Ids):
      #this section alows new members to be added to the crew by inputing the data in the the init_data base 
      
-     print("add member selected")
-     print("loading please stand by")
-     print("====add member====")
+    print("add member selected")
+    print("loading please stand by")
+    print("====add member====")
 
+    valid_Ranks = [
+        "Admiral", "Captain", "Commander", "Lt. Commander",
+        "Lieutenant", "Lieutenant Junior Grade", "Ensign",
+        "Chief Petty Officer", "Petty Officer", "Crewman",
+        "Chief Engineer", "Chief Medical Officer",
+        "Counselor", "Tactical Officer"
+    ]
 
+    new_Title = input("insert crew members name ")
+    new_Rank = input("insert new crem members rank ")
+    if new_Rank not in valid_Ranks:
+        print("error: Rank not recognised. failed to add member.")
+        print("=" * 20)
 
+    new_Division = input("insert new crew members division ")
+    new_Ids = input("insert new crew members I'd ")
 
+    if new_Ids in Ids:
+        print("error: id already allocated, failed to add member")
+        print("please try again with an alternative ID")
+        print("=" * 20)
+        return
 
+    Titles.append(new_Title)
+    Rank.append(new_Rank)
+    Division.append(new_Division)
+    Ids.append(new_Ids)
 
-
-     new_Title = input("insert crew members name ")
-     new_Rank = input("insert new crem members rank ")
-     new_Division = input("insert new crew members division ")
-     new_Ids = input("insert new crew members I'd ")
-
-     Titles.append(new_Title)
-     Rank.append(new_Rank)
-     Division.append(new_Division)
-     Ids.append(new_Ids)
-
-     print(f"{new_Title} crew member has been officaly added to the crew. ")
-     print("=" * 20)
+    print(f"{new_Title} crew member has been officaly added to the crew. ")
+    print("=" * 20)
 
 def remove_member(Titles, Rank, Division, Ids):
     print("remeve member selected ")
