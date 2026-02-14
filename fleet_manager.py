@@ -17,6 +17,7 @@ print("="*20)
 def display_menu():
            
             #prints all the different menu options
+            print("please selct entry")
             print("1. display roster")
             print("2. add member")
             print("3. remover member")
@@ -26,9 +27,9 @@ def display_menu():
             print("7. calculate payroll")
             print("8. count oficers")
             print("9. exit terminal")
-            print("=" * 20)
-            #allows the input for the different menus
             choice = input("please select entry ")
+            print("=" * 20)
+#allows the input for the different menus
             print("=" * 20)
 
             return choice
@@ -53,9 +54,9 @@ def add_member(Titles, Rank, Division, Ids):
      print("====add member====")
 
      new_Title = input("insert crew members name ")
-     new_Rank = input("insert new crem members rank")
-     new_Division = input("insert new crew members division")
-     new_Ids = input("insert new crew members I'd")
+     new_Rank = input("insert new crem members rank ")
+     new_Division = input("insert new crew members division ")
+     new_Ids = input("insert new crew members I'd ")
 
      Titles.append(new_Title)
      Rank.append(new_Rank)
@@ -70,7 +71,8 @@ def remove_member(Titles, Rank, Division, Ids):
      print("loading please stand by")
      print("====remove member====")
 
-     remove_id = int(input("please enter the id of the crewmen to be terminated"))
+     remove_id = input("please enter the id of the crewmen to be terminated ")
+     print("=" * 20)
 
      if remove_id in Ids:
           index = Ids.index(remove_id)
@@ -82,10 +84,30 @@ def remove_member(Titles, Rank, Division, Ids):
           Division.pop(index)
           Ids.pop(index)
 
-          print(f"{remove_name} crew member has been terminated,advised to escort crewmen of board ")
+          print(f"crew member {remove_name} has been terminated, advised to escort crewmen of board ")
+          print("=" * 20)
      else:
           print("error: id not recognised ")
-          print("=" * 20)     
+          print("=" * 20) 
+
+def update_rank(Titles, Rank, Ids):
+     print("update rank selected ")
+     print("loading,please stand by ")
+     print("====update rank====")
+
+     update_id = int(input("input designated id of a crewmen to update there rank"))
+
+     if update_id in Ids:
+          index = Ids.index(update_id)
+
+          print(f"current rank {Titles[index]} is {Rank[index]}")
+          new_rank = input("please enter the new rank: ")
+          Rank[index] = new_rank
+          print(f"{Titles[index]}'s rank has been promoted to {new_rank} congratulations.")
+          print("=" * 20)
+     else:
+          print("error: id not rcognised, plese try again")
+          print("=" * 20)
 
 def main():
 #this is my main loop that all the if elif and else loops run through
