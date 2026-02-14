@@ -1,10 +1,14 @@
 def init_database():
-#starting list of names and ranks and over info
+    
+#starting list of names and ranks and over info for functions to pull info from
+    
     Titles = ["Picard", "Riker", "Data", "Forge", "Crusher"]
     Rank = ["Captain", "Commander", "Lt. Commander", "Lieutenant", "Commander"]
     Division = ["Command", "Command", "Operations","Operations", "Sciences"]
-    Ids = [1001, 1002, 1003, 1004, 1005] 
-#sir the hardest thing so far is finding the names and roles of the characters as i have never watched star trek
+    Ids = [1001, 1002, 1003, 1004, 1005]
+
+#sir the hardest thing so far is finding the names and roles of the characters as i have never watched star trek XD
+
     return Titles, Rank, Division, Ids
 
 print("terminal activation")
@@ -13,10 +17,12 @@ print("systerm open")
 print("welcome user")
 print("="*20)
 
+# this is the opening welcome message to the user 
 
 def display_menu():
-           
-            #prints all the different menu options
+            
+#this function opens no mater the input and prints all the options for the user to use           
+            
             print("please selct entry")
             print("1. display roster")
             print("2. add member")
@@ -28,10 +34,9 @@ def display_menu():
             print("8. count oficers")
             print("9. exit terminal")
             choice = input("please select entry ")
-            print("=" * 20)
-#allows the input for the different menus
-            print("=" * 20)
 
+#the requested input allows for the function in the main loop to be pulled
+           
             return choice
 
 def display_roster(Titles, Rank, Division, Ids):
@@ -45,10 +50,13 @@ def display_roster(Titles, Rank, Division, Ids):
           print(f"<  {Titles[i]}  >  <  {Rank[i]}  >  <  {Division[i]}  >  <  {Ids[i]}  >")
 
           print("=" * 20)
-# i used a for in range to print all the caracters with there respected rank division and set id  
+
+# i used a "for in range" to print all the caracters with there respected rank division and set id this roster will update when the add remove and update rank functions are used   
+# also the roster will be used when searching crew 
 
 def add_member(Titles, Rank, Division, Ids):
      #this section alows new members to be added to the crew by inputing the data in the the init_data base 
+     
      print("add member selected")
      print("loading please stand by")
      print("====add member====")
@@ -71,6 +79,8 @@ def remove_member(Titles, Rank, Division, Ids):
      print("loading please stand by")
      print("====remove member====")
 
+#this function askes for a input(id) and removes them from the list and the init database if the id is not recognised then it print a error message
+     
      remove_id = input("please enter the id of the crewmen to be terminated ")
      print("=" * 20)
 
@@ -95,6 +105,8 @@ def update_rank(Titles, Rank, Ids):
      print("loading,please stand by ")
      print("====update rank====")
 
+#this function askes for a id and then a new rank to change again if the is is not recgnised it sends a error message
+  
      update_id = int(input("input designated id of a crewmen to update there rank"))
 
      if update_id in Ids:
@@ -110,13 +122,19 @@ def update_rank(Titles, Rank, Ids):
           print("=" * 20)
 
 def main():
+
 #this is my main loop that all the if elif and else loops run through
+
     Titles, Rank, Division, Ids = init_database()
-#ask for the users name and welocmes them to star fleet comand   
+
+#ask for the users name and welocmes them to star fleet comand
+    
     name = input("what is your name ")
     print("hello", name)
     print("welcome to starfleet comand")
     print("=" *20)
+
+#also it is where all the functions are called from allowing the systerm to run 
 
     while True:
         choice = display_menu() 
