@@ -61,6 +61,12 @@ def add_member(Titles, Rank, Division, Ids):
      print("loading please stand by")
      print("====add member====")
 
+
+
+
+
+
+
      new_Title = input("insert crew members name ")
      new_Rank = input("insert new crem members rank ")
      new_Division = input("insert new crew members division ")
@@ -75,146 +81,146 @@ def add_member(Titles, Rank, Division, Ids):
      print("=" * 20)
 
 def remove_member(Titles, Rank, Division, Ids):
-     print("remeve member selected ")
-     print("loading please stand by")
-     print("====remove member====")
+    print("remeve member selected ")
+    print("loading please stand by")
+    print("====remove member====")
 
 #this function askes for a input(id) and removes them from the list and the init database if the id is not recognised then it print a error message
      
-     remove_id = input("please enter the id of the crewmen to be terminated ")
-     print("=" * 20)
+    remove_id = input("please enter the id of the crewmen to be terminated ")
+    print("=" * 20)
 
-     if remove_id in Ids:
-          index = Ids.index(remove_id)
+    if remove_id in Ids:
+        index = Ids.index(remove_id)
 
-          remove_name = Titles[index]
+        remove_name = Titles[index]
 
-          Titles.pop(index)
-          Rank.pop(index)
-          Division.pop(index)
-          Ids.pop(index)
+        Titles.pop(index)
+        Rank.pop(index)
+        Division.pop(index)
+        Ids.pop(index)
 
-          print(f"crew member {remove_name} has been terminated, advised to escort crewmen of board ")
-          print("=" * 20)
-     else:
-          print("error: id not recognised ")
-          print("=" * 20) 
+        print(f"crew member {remove_name} has been terminated, advised to escort crewmen of board ")
+        print("=" * 20)
+    else:
+        print("error: id not recognised ")
+        print("=" * 20) 
 
 def update_rank(Titles, Rank, Ids):
-     print("update rank selected ")
-     print("loading,please stand by ")
-     print("====update rank====")
+    print("update rank selected ")
+    print("loading,please stand by ")
+    print("====update rank====")
 
 #this function askes for a id and then a new rank to change again if the is is not recgnised it sends a error message
   
-     update_id = int(input("input designated id of a crewmen to update there rank"))
+    update_id = int(input("input designated id of a crewmen to update there rank"))
 
-     if update_id in Ids:
-          index = Ids.index(update_id)
+    if update_id in Ids:
+        index = Ids.index(update_id)
 
-          print(f"current rank {Titles[index]} is {Rank[index]}")
-          new_rank = input("please enter the new rank: ")
-          Rank[index] = new_rank
-          print(f"{Titles[index]}'s rank has been promoted to {new_rank} congratulations.")
-          print("=" * 20)
-     else:
-          print("error: id not rcognised, plese try again")
-          print("=" * 20)
+        print(f"current rank {Titles[index]} is {Rank[index]}")
+        new_rank = input("please enter the new rank: ")
+        Rank[index] = new_rank
+        print(f"{Titles[index]}'s rank has been promoted to {new_rank} congratulations.")
+        print("=" * 20)
+    else:
+        print("error: id not rcognised, plese try again")
+        print("=" * 20)
 
 def search_crew(Titles, Rank, Division, Ids):
-     print("search crewmen selected ")
-     print("please stand by, loading")
-     print("====search crewmen selected====")
+    print("search crewmen selected ")
+    print("please stand by, loading")
+    print("====search crewmen selected====")
 #this function searches for crewmen via a full string or a partical string.
-     search_term = input("enter name or section of name to search for crewmen ")
+    search_term = input("enter name or section of name to search for crewmen ")
 #if the full string is found its declared false and inputs the result
-     found = False
+    found = False
 
-     for i in range(len(Titles)):
-          if search_term in Titles[i].lower():
-               print("=" * 20)
-               print(f"<  {Titles[i]}  >  <  {Rank[i]}  >  <  {Division[i]}  >  <  {Ids[i]}  >")
-               found = True
+    for i in range(len(Titles)):
+        if search_term in Titles[i].lower():
+            print("=" * 20)
+            print(f"<  {Titles[i]}  >  <  {Rank[i]}  >  <  {Division[i]}  >  <  {Ids[i]}  >")
+            found = True
 #if a partal string is input it will compare the partial string to the full string and if so it will be found true and input the result  
-     if not found:
-          print("no crew members match that search research.")
-          print("please try again")
-          print("=" * 20)
+    if not found:
+        print("no crew members match that search research.")
+        print("please try again")
+        print("=" * 20)
 
 def  filter_by_division(Titles, Division):
-     print("fillter by division")
-     print("please stand by, loading")
-     print("====filter by division====")
+    print("fillter by division")
+    print("please stand by, loading")
+    print("====filter by division====")
 
-     search_div = input("please enter division to fillter by (command, operations, sciences):").lower()
+    search_div = input("please enter division to fillter by (command, operations, sciences):").lower()
 
-     found = True
+    found = True
 
-     for i in range(len(Division)):
-          if Division[i].lower() == search_div:
-               print("=" * 20)
-               print(f"<  {Titles[i]}  >  <  {Division[i]}  >  ")
-               found = True
-               print("=" * 20)
+    for i in range(len(Division)):
+        if Division[i].lower() == search_div:
+            print("=" * 20)
+            print(f"<  {Titles[i]}  >  <  {Division[i]}  >  ")
+            found = True
+            print("=" * 20)
 
-     if not found:
-          print("no crewmen present in this division.")
-          print(" * 20")
+    if not found:
+        print("no crewmen present in this division.")
+        print(" * 20")
 
 def calculate_payroll(Rank):
-     print("calculate payrole selected")
-     print("please stand by, loading")
-     print("====calculate payrole====")
+    print("calculate payrole selected")
+    print("please stand by, loading")
+    print("====calculate payrole====")
 
-     total_pay = 0 
+    total_pay = 0 
 
-     pay_rates = {
-        "Admiral": 7000,
-        "Captain": 5000,
-        "Commander": 4000,
-        "Lt. Commander": 3500,
-        "Lieutenant": 3000,
-        "Lieutenant Junior Grade": 2800,
-        "Ensign": 2500,
-        "Chief Petty Officer": 2200,
-        "Petty Officer": 2000,
-        "Crewman": 1800,
-        "Chief Engineer": 4500,
-        "Chief Medical Officer": 4500,
-        "Counselor": 4200,
-        "Tactical Officer": 4000
-     } 
-     for r in Rank:
-          if r in pay_rates:
-               total_pay += pay_rates[r]
-          else:
-               print(f"warning: rank not recognised '{r}',no pay added to total")
+    pay_rates = {
+    "Admiral": 7000,
+    "Captain": 5000,
+    "Commander": 4000,
+    "Lt. Commander": 3500,
+    "Lieutenant": 3000,
+    "Lieutenant Junior Grade": 2800,
+    "Ensign": 2500,
+    "Chief Petty Officer": 2200,
+    "Petty Officer": 2000,
+    "Crewman": 1800,
+    "Chief Engineer": 4500,
+    "Chief Medical Officer": 4500,
+    "Counselor": 4200,
+    "Tactical Officer": 4000
+    } 
+    for r in Rank:
+        if r in pay_rates:
+            total_pay += pay_rates[r]
+        else:
+            print(f"warning: rank not recognised '{r}',no pay added to total")
               
-     print(f"total payroll for all crew members is {total_pay} credits.")
-     print("=" * 20)
+    print(f"total payroll for all crew members is {total_pay} credits.")
+    print("=" * 20)
 
 def count_officers(Rank):
-     print("officer count selected")
-     print("please stand by ")
-     print("====officer count selected====")
+    print("officer count selected")
+    print("please stand by ")
+    print("====officer count selected====")
 
-     officer_ranks = [
-          "Admrial",
-          "Captain",
-          "Commander",
-          "Lt. Commander",
-          "Lieutenant",
-          "Lieutenant Junior Grade",
-          "Ensign"
-     ]
-     officer_count = 0
+    officer_ranks = [
+    "Admrial",
+    "Captain",
+    "Commander",
+    "Lt. Commander",
+    "Lieutenant",
+    "Lieutenant Junior Grade",
+    "Ensign"
+    ]
+    officer_count = 0
 
-     for r in Rank:
-          if r in officer_ranks:
-               officer_count += 1
+    for r in Rank:
+        if r in officer_ranks:
+            officer_count += 1
 
-     print(f"total number of commissioned officers onboard at this time: {officer_count}")
-     print("=" * 20)
+    print(f"total number of commissioned officers onboard at this time: {officer_count}")
+    print("=" * 20)
 
 def main():
 
