@@ -126,7 +126,7 @@ def search_crew(Titles, Rank, Division, Ids):
      print("please stand by, loading")
      print("====search crewmen selected====")
 #this function searches for crewmen via a full string or a partical string.
-     search_term = input("enter name or section of name to search for crewmen")
+     search_term = input("enter name or section of name to search for crewmen ")
 #if the full string is found its declared false and inputs the result
      found = False
 
@@ -140,6 +140,31 @@ def search_crew(Titles, Rank, Division, Ids):
           print("no crew members match that search research.")
           print("please try again")
           print("=" * 20)
+
+def  filter_by_division(Titles, Division):
+     print("fillter by division")
+     print("please stand by, loading")
+     print("====filter by division====")
+
+     search_div = input("please enter division to fillter by (command, operations, sciences):").lower()
+
+     found = True
+
+     for i in range(len(Division)):
+          if Division[i].lower() == search_div:
+               print("=" * 20)
+               print(f"<  {Titles[i]}  >  <  {Division[i]}  >  ")
+               found = True
+               print("=" * 20)
+
+     if not found:
+          print("no crewmen present in this division.")
+          print(" * 20")
+
+
+
+
+ 
 
 def main():
 
