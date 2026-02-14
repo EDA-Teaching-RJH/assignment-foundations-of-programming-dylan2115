@@ -193,6 +193,28 @@ def calculate_payroll(Rank):
      print(f"total payroll for all crew members is {total_pay} credits.")
      print("=" * 20)
 
+def count_officers(Rank):
+     print("officer count selected")
+     print("please stand by ")
+     print("====officer count selected====")
+
+     officer_ranks = [
+          "Admrial",
+          "Captain",
+          "Commander",
+          "Lt. Commander",
+          "Lieutenant",
+          "Lieutenant Junior Grade",
+          "Ensign"
+     ]
+     officer_count = 0
+
+     for r in Rank:
+          if r in officer_ranks:
+               officer_count += 1
+
+     print(f"total number of commissioned officers onboard at this time: {officer_count}")
+     print("=" * 20)
 
 def main():
 
