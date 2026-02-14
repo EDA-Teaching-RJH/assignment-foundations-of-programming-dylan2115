@@ -121,6 +121,26 @@ def update_rank(Titles, Rank, Ids):
           print("error: id not rcognised, plese try again")
           print("=" * 20)
 
+def search_crew(Titles, Rank, Division, Ids):
+     print("search crewmen selected ")
+     print("please stand by, loading")
+     print("====search crewmen selected====")
+#this function searches for crewmen via a full string or a partical string.
+     search_term = input("enter name or section of name to search for crewmen")
+#if the full string is found its declared false and inputs the result
+     found = False
+
+     for i in range(len(Titles)):
+          if search_term in Titles[i].lower():
+               print("=" * 20)
+               print(f"<  {Titles[i]}  >  <  {Rank[i]}  >  <  {Division[i]}  >  <  {Ids[i]}  >")
+               found = True
+#if a partal string is input it will compare the partial string to the full string and if so it will be found true and input the result  
+     if not found:
+          print("no crew members match that search research.")
+          print("please try again")
+          print("=" * 20)
+
 def main():
 
 #this is my main loop that all the if elif and else loops run through
