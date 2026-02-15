@@ -8,7 +8,7 @@ def init_database():
     Division = ["Command", "Command", "Operations","Operations", "Sciences"]
 #ids must be an interger to match correctly
     
-    Ids = [1001, 1002, 1003, 1004, 1005]
+    Ids = ["1001", "1002", "1003", "1004", "1005"]
 #sir the hardest thing so far is finding the names and roles of the characters as i have never watched star trek XD
 
     return Titles, Rank, Division, Ids
@@ -131,7 +131,7 @@ def update_rank(Titles, Rank, Ids):
 
 #this function askes for a id and then a new rank to change again if the is is not recgnised it sends a error message
   
-    update_id = input("input designated id of a crewmen to update there rank")
+    update_id = input("input designated id of a crewmen to update there rank ")
 
     if update_id in Ids:
         index = Ids.index(update_id)
@@ -169,7 +169,11 @@ def  filter_by_division(Titles, Division):
     print("fillter by division")
     print("please stand by, loading")
     print("====filter by division====")
+#only shows crew members in a specific division
 
+#the user but input command, operations, or science 
+
+#if a division has not been added to the data base it will not come up with anything 
     search_div = input("please enter division to fillter by (command, operations, sciences):").lower()
 
     found = False
@@ -189,9 +193,9 @@ def calculate_payroll(Rank):
     print("calculate payrole selected")
     print("please stand by, loading")
     print("====calculate payrole====")
-
+#this function calculates the crew total by asociating each rank with a cretid amount
     total_pay = 0 
-
+#a list with each rank with its set pay rate
     pay_rates = {
     "Admiral": 7000,
     "Captain": 5000,
@@ -208,6 +212,7 @@ def calculate_payroll(Rank):
     "Counselor": 4200,
     "Tactical Officer": 4000
     } 
+#i added more ranks as it looked empty andd i wanted to try and add a full crew to the systerm which i found online 
     for r in Rank:
         if r in pay_rates:
             total_pay += pay_rates[r]
@@ -221,7 +226,7 @@ def count_officers(Rank):
     print("officer count selected")
     print("please stand by ")
     print("====officer count selected====")
-
+#this function count which ranks count as officers and how many are present
     officer_ranks = [
     "Admrial",
     "Captain",
@@ -232,7 +237,7 @@ def count_officers(Rank):
     "Ensign"
     ]
     officer_count = 0
-
+#all ranks are based of tng i think 
     for r in Rank:
         if r in officer_ranks:
             officer_count += 1
@@ -241,49 +246,47 @@ def count_officers(Rank):
     print("=" * 20)
 
 def main():
-
-#this is my main loop that all the if elif and else loops run through
-
+#loads the database and keeps the list in parralell acording to there index
+#this is my main loop that all the functions are called from
+#i used if elif and else staments to do this
     Titles, Rank, Division, Ids = init_database()
 
 #ask for the users name and welocmes them to star fleet comand
-    
+#this will keep loping untill the user choices the exit function     
     name = input("what is your name ")
     print("hello", name)
     print("welcome to starfleet comand")
-    print("=" *20)
-
-#also it is where all the functions are called from allowing the systerm to run 
+    print("=" *20) 
 
     while True:
         choice = display_menu() 
 
         if choice == "1":
             display_roster(Titles, Rank, Division, Ids)
-
+#the display roster
         elif choice == "2":
             add_member(Titles, Rank, Division, Ids)
-
+#add new crew member
         elif choice == "3":
             remove_member(Titles, Rank, Division, Ids) 
-
+#remove crew member
         elif choice == "4":
             update_rank(Titles, Rank, Ids)
-
+#update rank
         elif choice == "5":
             search_crew(Titles, Rank, Division, Ids)
-
+#search crew tab
         elif choice == "6":
             filter_by_division(Titles, Division)
-
+#filter by division
         elif choice == "7":
             total = calculate_payroll(Rank)
-            print("total payroll:",total)
-
+            
+#calculate payroll
         elif choice == "8":
             count = count_officers(Rank) 
-            print("total senior officer count", count)
-
+            
+#count officers 
         elif choice == "9":
             print("exit terminal")
             print("shut down in progress")
@@ -292,7 +295,11 @@ def main():
             print("live long and prosper")
             print("=" * 20)
             break
+#exit the programe
+#end the while true loop        
         else:
             print("option not avaliable")
             print("try gain")
+#handles non valid inputs 
+#starts the program
 main()
